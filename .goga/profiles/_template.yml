@@ -5,7 +5,7 @@
 #      (name in ASCII letters: letters, digits, dots, hyphens; e.g. space.yml).
 #   2. Fill in topic.name — that is the required minimum; everything else can
 #      be removed or left empty: neutral defaults will apply.
-#   3. Run: goga pipeline generator --profile <topic-name>
+#   3. Run: goga pipeline generate -p <topic-name>
 #
 # The _template file itself cannot be activated (a leading underscore fails
 # the profile-name grammar), so it safely sits here as a reference.

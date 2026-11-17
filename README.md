@@ -50,15 +50,21 @@ A profile sets the content/communication languages, the topic name, scoring hint
 2. Fill in at least `topic.name` — everything else falls back to neutral defaults.
 3. Run the pipeline with the new profile (see below).
 
+## Installation
+
+```bash
+pipx install goga
+```
+
 ## Usage
 
 ```bash
 # run with a specific profile (default: ai)
-goga pipeline generator --profile <topic-name>
+goga pipeline generate -p <topic-name>
 
 # examples
-goga pipeline generator --profile ai
-goga pipeline generator --profile qa
+goga pipeline generate -p ai
+goga pipeline generate -p qa
 ```
 
 Note: a full run (digest + article) involves many LLM calls, including web-search

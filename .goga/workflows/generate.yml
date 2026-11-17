@@ -369,7 +369,9 @@ stages:
 
       Discuss the final result with @fact-checker and @hype-filter.
     notes:
+      "Daily": "Pick the top stories of the last day"
       "Weekly": "Pick the top stories of the last week"
+      "Monthly": "Pick the top stories of the last month"
     assistants:
       fact-checker:
         when: message

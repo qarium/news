@@ -6,6 +6,22 @@ publication-ready materials: a short Telegram-style digest and a deep analytical
 The pipeline is defined with [goga](https://github.com/qarium) and parameterized by topic
 profiles — the same machinery serves AI, dev, DevOps, QA, design and product topics.
 
+## Quick start
+
+```bash
+pipx install goga
+
+# run with a specific profile (default: ai)
+goga pipeline generate -p <topic-name>
+
+# examples
+goga pipeline generate -p ai
+goga pipeline generate -p qa
+```
+
+Note: a full run (digest + article) involves many LLM calls, including web-search
+assistants — it consumes a noticeable amount of tokens.
+
 ## How it works
 
 The `generate` pipeline (`NewsGenerator`) runs a sequence of stages:
@@ -49,26 +65,6 @@ A profile sets the content/communication languages, the topic name, scoring hint
    (ASCII letters, digits, dots, hyphens).
 2. Fill in at least `topic.name` — everything else falls back to neutral defaults.
 3. Run the pipeline with the new profile (see below).
-
-## Installation
-
-```bash
-pipx install goga
-```
-
-## Usage
-
-```bash
-# run with a specific profile (default: ai)
-goga pipeline generate -p <topic-name>
-
-# examples
-goga pipeline generate -p ai
-goga pipeline generate -p qa
-```
-
-Note: a full run (digest + article) involves many LLM calls, including web-search
-assistants — it consumes a noticeable amount of tokens.
 
 ## Output artifacts
 

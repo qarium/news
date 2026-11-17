@@ -1,0 +1,20 @@
+# Artifacts folder: .artifacts/<slug>/<issue date>/digest.md|article.md
+slug: ai
+# Content language (final materials) and communication language (dialogue with the customer) — used by the workflow master prompt.
+content_language: "English"
+communication_language: "Russian"
+topic:
+  # Required field: the topic name in the nominative case.
+  name: "artificial intelligence"
+  # Who counts as industry leaders (feeds the "Impact scale" scoring criterion).
+  key_players: "OpenAI, Google, Anthropic, Meta, Microsoft, xAI, DeepSeek and other market leaders"
+  # Industry-changing events (the 4-point scoring criterion).
+  landmark_events: "releases of new foundation models (LLM, video, audio), major updates from market leaders, technological breakthroughs"
+  # Practically valuable events (the 3-point scoring criterion).
+  practical_events: "new open-source tools, APIs, useful features for business and developers"
+  # Industry resonance (the 3-point scoring criterion).
+  industry_events: "major investments, mergers, important AI legislation changes, loud insider reports"
+  # Which characteristics and figures the fact-checker looks for first.
+  metrics_hint: "exact model parameters, context window size, price per million tokens, comparison with the previous version and competitors, benchmarks, license"
+  # Target audience of the channel.
+  audience: "entrepreneurs, developers, marketers and tech enthusiasts who value essence, utility and trends over dry press releases"

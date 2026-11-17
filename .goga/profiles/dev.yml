@@ -1,0 +1,19 @@
+# Artifacts folder: .artifacts/<slug>/<issue date>/digest.md|article.md
+slug: dev
+# Content language (final materials) and communication language (dialogue with the customer) — used by the workflow master prompt.
+content_language: "English"
+communication_language: "Russian"
+topic:
+  name: "software development"
+  # Who counts as industry leaders (feeds the "Impact scale" scoring criterion).
+  key_players: "Microsoft (VS Code, TypeScript, GitHub), JetBrains, Google (Go, Android), Apple (Xcode, Swift), Rust Foundation, Python Software Foundation, Oracle (Java), .NET (Microsoft), GitHub Copilot, Cursor"
+  # Industry-changing events (the 4-point scoring criterion).
+  landmark_events: "major releases of languages and frameworks (TypeScript, Rust, Go, Python, Java, .NET), significant IDE and developer tooling updates, loud ecosystem incidents (supply chain attacks, pulled packages, broken releases), shifts in coding approaches (AI pair programming, local code models)"
+  # Practically valuable events (the 3-point scoring criterion).
+  practical_events: "new open-source libraries and tools, development platform API updates, useful features for developers in IDEs, editors and CI"
+  # Industry resonance (the 3-point scoring criterion).
+  industry_events: "acquisitions and investments in DevTools companies, license and policy changes by vendors, hiring and salary trends in development, major industry research (Stack Overflow Survey, Octoverse)"
+  # Which characteristics and figures the fact-checker looks for first.
+  metrics_hint: "compilation and runtime performance, benchmark comparisons against competitors, supported versions and compatibility, breaking changes and migration guides, prices and licenses, package ecosystem size and growth rate"
+  # Target audience of the channel.
+  audience: "developers (backend, frontend, mobile), tech leads and architects, who value the practical utility of new tools, performance and code quality"

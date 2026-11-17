@@ -1,0 +1,19 @@
+# Artifacts folder: .artifacts/<slug>/<issue date>/digest.md|article.md
+slug: design
+# Content language (final materials) and communication language (dialogue with the customer) — used by the workflow master prompt.
+content_language: "English"
+communication_language: "Russian"
+topic:
+  name: "digital product design (UI/UX)"
+  # Who counts as industry leaders (feeds the "Impact scale" scoring criterion).
+  key_players: "Figma, Adobe (Photoshop, Illustrator, Firefly), Sketch, Canva, Framer, Blender, Spline, Penpot, Apple (Human Interface Guidelines), Google (Material Design), Dribbble and Behance"
+  # Industry-changing events (the 4-point scoring criterion).
+  landmark_events: "major design tool releases (Figma Config, Adobe MAX), shifts in design systems and platform standards (Material, HIG), breakthroughs in AI generation of UI and images and their impact on the profession, redesigns of well-known products"
+  # Practically valuable events (the 3-point scoring criterion).
+  practical_events: "new design tool features and plugins, open-source alternatives (Penpot), API and auto-layout engine updates, fresh UI kits and design systems"
+  # Industry resonance (the 3-point scoring criterion).
+  industry_events: "acquisitions and investments in design tools (the Adobe–Figma saga), license disputes around AI model training, designer hiring trends, debates about the profession's future"
+  # Which characteristics and figures the fact-checker looks for first.
+  metrics_hint: "plan prices and tiers, free plan limits, AI generation quality and speed, platform and file format support, integrations, version status (beta/GA)"
+  # Target audience of the channel.
+  audience: "product and graphic designers, design leads and UX researchers, who value new tools, working speed and AI's impact on the craft"

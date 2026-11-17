@@ -1,0 +1,19 @@
+# Artifacts folder: .artifacts/<slug>/<issue date>/digest.md|article.md
+slug: product
+# Content language (final materials) and communication language (dialogue with the customer) — used by the workflow master prompt.
+content_language: "English"
+communication_language: "Russian"
+topic:
+  name: "product development and product management"
+  # Who counts as industry leaders (feeds the "Impact scale" scoring criterion).
+  key_players: "Linear, Notion, Atlassian (Jira Product Discovery), Productboard, airfocus, Amplitude, Mixpanel, Hotjar, Miro, SVPG (Marty Cagan), Lenny's Newsletter, Reforge, Mind the Product, Product School"
+  # Industry-changing events (the 4-point scoring criterion).
+  landmark_events: "major releases of product analytics and backlog management platforms, paradigm shifts (product-led growth, AI assistants in products and in PM work), loud failures and pivots of well-known products, landmark industry talks and manifestos (State of Product, SVPG)"
+  # Practically valuable events (the 3-point scoring criterion).
+  practical_events: "new tools for discovery, roadmapping and product analytics, platform API updates, ready-made frameworks and templates for PM work"
+  # Industry resonance (the 3-point scoring criterion).
+  industry_events: "acquisitions and investments in product tooling, product manager hiring and salary trends, debates about the PM role in the AI era, loud departures and reorganizations in product teams"
+  # Which characteristics and figures the fact-checker looks for first.
+  metrics_hint: "platform prices and tiers, feature limits per tier, growth metrics (retention, activation, NPS), A/B test results and adoption cases, industry research and survey data"
+  # Target audience of the channel.
+  audience: "product managers, startup founders, product analysts and UX researchers, who value discovery practice, metrics and hypothesis-testing speed"

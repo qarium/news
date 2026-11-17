@@ -1,0 +1,19 @@
+# Artifacts folder: .artifacts/<slug>/<issue date>/digest.md|article.md
+slug: qa
+# Content language (final materials) and communication language (dialogue with the customer) — used by the workflow master prompt.
+content_language: "Russian"
+communication_language: "Russian"
+topic:
+  name: "QA testing and software quality assurance"
+  # Who counts as industry leaders (feeds the "Impact scale" scoring criterion).
+  key_players: "Playwright (Microsoft), Selenium, Cypress, Postman, Appium, JUnit/TestNG, Atlassian (Jira, Zephyr), BrowserStack, LambdaTest, Applitools, Mabl, TestRail, Allure, k6 (Grafana)"
+  # Industry-changing events (the 4-point scoring criterion).
+  landmark_events: "major releases of test automation frameworks (Playwright, Selenium, Cypress), high-profile service outages caused by missed defects, shifts in quality approaches (shift-left, testing in production, AI-assisted testing), serious bugs found in popular products"
+  # Practically valuable events (the 3-point scoring criterion).
+  practical_events: "new open-source tools for automated, load and mobile testing, test platform API updates, useful features for QA teams"
+  # Industry resonance (the 3-point scoring criterion).
+  industry_events: "acquisitions and investments in test platforms, license and policy changes by vendors, QA hiring trends, loud debates about the profession's future (including AI's impact on testing)"
+  # Which characteristics and figures the fact-checker looks for first.
+  metrics_hint: "supported browser, OS and platform versions, run speed and stability, parallelization capabilities, prices and licensing model, AI feature support, migration guides and breaking changes"
+  # Target audience of the channel.
+  audience: "QA engineers, test automation engineers, QA leads and developers writing tests, who value practical utility, stable runs and release quality"

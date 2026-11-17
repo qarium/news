@@ -1,0 +1,19 @@
+# Artifacts folder: .artifacts/<slug>/<issue date>/digest.md|article.md
+slug: devops
+# Content language (final materials) and communication language (dialogue with the customer) — used by the workflow master prompt.
+content_language: "English"
+communication_language: "Russian"
+topic:
+  name: "DevOps, administration and infrastructure operations"
+  # Who counts as industry leaders (feeds the "Impact scale" scoring criterion).
+  key_players: "Kubernetes and the CNCF ecosystem, Docker, HashiCorp (Terraform, Vault), Red Hat/Ansible, Jenkins, GitLab CI, ArgoCD, Prometheus and Grafana, cloud providers (AWS, Azure, GCP), Cloudflare"
+  # Industry-changing events (the 4-point scoring criterion).
+  landmark_events: "new Kubernetes and key CNCF project versions, serious vulnerabilities (CVEs) and high-profile outages of major services, shifts in infrastructure automation (IaC, GitOps), the rise of platform engineering and internal developer platforms"
+  # Practically valuable events (the 3-point scoring criterion).
+  practical_events: "new open-source tools for pipelines, monitoring and IaC, platform API updates, useful features for operations and SRE teams"
+  # Industry resonance (the 3-point scoring criterion).
+  industry_events: "acquisitions and investments in DevTools companies, vendor license changes (as with HashiCorp and Redis), conflicts and forks in open-source communities, changing infrastructure security requirements (SBOM, regulation)"
+  # Which characteristics and figures the fact-checker looks for first.
+  metrics_hint: "supported versions and compatibility, breaking changes from the changelog, tool performance and limits, prices and licensing model, infrastructure requirements, maturity status (beta/GA), end-of-support dates for old versions"
+  # Target audience of the channel.
+  audience: "DevOps engineers, SREs and infrastructure administrators, team leads and platform teams, who value reliability, automation and predictability over marketing press releases"

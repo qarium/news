@@ -1,0 +1,31 @@
+# Topic profile template for the news pipeline.
+#
+# How to add a new topic:
+#   1. Copy this file to .goga/profiles/<topic-name>.yml
+#      (name in ASCII letters: letters, digits, dots, hyphens; e.g. space.yml).
+#   2. Fill in topic.name — that is the required minimum; everything else can
+#      be removed or left empty: neutral defaults will apply.
+#   3. Run: goga pipeline generator --profile <topic-name>
+#
+# The _template file itself cannot be activated (a leading underscore fails
+# the profile-name grammar), so it safely sits here as a reference.
+
+# Artifacts folder: .artifacts/<slug>/<issue date>/digest.md|article.md
+slug: "<profile file name>"
+# Content language (final materials) and communication language (dialogue with the customer) — used by the workflow master prompt. E.g. "English", "Russian".
+content_language: "English"
+communication_language: "Russian"
+topic:
+  name: "<topic name in the nominative case, e.g.: space industry>"
+  # Who counts as industry leaders (feeds the "Impact scale" scoring criterion):
+  key_players: "<the largest companies and figures of the topic>"
+  # Industry-changing events (the 4-point scoring criterion):
+  landmark_events: "<breakthroughs and major releases that change the industry>"
+  # Practically valuable events (the 3-point scoring criterion):
+  practical_events: "<new tools and features useful for business and practitioners>"
+  # Industry resonance (the 3-point scoring criterion):
+  industry_events: "<investments, deals, regulation, loud insider reports>"
+  # Which characteristics and figures the fact-checker looks for first:
+  metrics_hint: "<the topic's key metrics, specifications and prices>"
+  # Target audience of the channel:
+  audience: "<who reads the channel and what they value>"

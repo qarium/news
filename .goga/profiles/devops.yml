@@ -1,7 +1,7 @@
 # Artifacts folder: .artifacts/<slug>/<issue date>/digest.md|article.md
 slug: devops
 # Content language (final materials) and communication language (dialogue with the customer) — used by the workflow master prompt.
-content_language: "English"
+content_language: "Russian"
 communication_language: "Russian"
 topic:
   name: "DevOps, administration and infrastructure operations"

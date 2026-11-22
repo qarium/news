@@ -3,7 +3,8 @@
 # How to add a new topic:
 #   1. Copy this file to .goga/profiles/<topic-name>.yml
 #      (name in ASCII letters: letters, digits, dots, hyphens; e.g. space.yml).
-#   2. Fill in topic.name — that is the required minimum; everything else can
+#   2. Fill in topic.name — that is the required minimum. Keep the agents
+#      block (the workflow renders every group from it); everything else can
 #      be removed or left empty: neutral defaults will apply.
 #   3. Run: goga pipeline generate -p <topic-name>
 #
@@ -15,6 +16,34 @@ slug: "<profile file name>"
 # Content language (final materials) and communication language (dialogue with the customer) — used by the workflow master prompt. E.g. "English", "Russian".
 content_language: "English"
 communication_language: "Russian"
+
+# Delivery groups for the workflow agents — per-topic tuning.
+agents:
+  # Each group = the agent name + its full launch env — swap freely per topic.
+  # The lead agent — runs the five pipeline stages (search…article) and directs the assistants.
+  lead:
+    agent: "claude"
+    env:
+      ANTHROPIC_MODEL: "opus"
+      ANTHROPIC_BASE_URL: "https://api.z.ai/api/anthropic"
+  # Search-stage fact work and skepticism (fact-checker, hype-filter).
+  analyst:
+    agent: "codex"
+    env:
+      CODEX_MODEL: "gpt-6-sol"
+      CODEX_REASONING: "xhigh"
+  # Production chain: narrative, angles, style rewrites, longread team.
+  writer:
+    agent: "codex"
+    env:
+      CODEX_MODEL: "gpt-6-astra"
+      CODEX_REASONING: "high"
+  # Gates and final assembly (quality gate, managing editors, long-form writer).
+  editor:
+    agent: "codex"
+    env:
+      CODEX_MODEL: "gpt-6-astra"
+      CODEX_REASONING: "xhigh"
 topic:
   name: "<topic name in the nominative case, e.g.: space industry>"
   # Who counts as industry leaders (feeds the "Impact scale" scoring criterion):

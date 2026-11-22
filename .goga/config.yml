@@ -4,15 +4,6 @@ image: qarium/goga-python-3.14:2.1
 
 .base-ref: &base-ref release/2.1.0
 
-.claude-env: &claude-env
-  ANTHROPIC_MODEL: opus
-  ANTHROPIC_BASE_URL: "https://api.z.ai/api/anthropic"
-
-pipeline:
-  agent: claude
-  env:
-    <<: *claude-env
-
 topics:
   base_ref: *base-ref
 

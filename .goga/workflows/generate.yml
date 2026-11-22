@@ -1,25 +1,44 @@
 profile: ai
 
-# Codex delivery groups — global declarations (dotted keys are anchor
-# carriers: inert for goga, resolved by the YAML loader). Every assistant
-# entry below is a pure substitution via the merge key.
-.codex-sol-xhigh: &codex-sol-xhigh
-  agent: codex
-  env:
-    CODEX_MODEL: "gpt-6-sol"
-    CODEX_REASONING: "xhigh"
+agent: "{{ agents.lead.agent }}"
+{% if agents.lead.env %}
+env:
+{% for key, value in agents.lead.env.items() %}
+  {{ key }}: {{ value | tojson }}
+{% endfor %}
+{% endif %}
 
-.codex-astra-high: &codex-astra-high
-  agent: codex
+# Agent delivery groups, classified by role — global declarations (dotted
+# keys are anchor carriers: inert for goga, resolved by the YAML loader).
+# Each group's agent name and launch env come entirely from the active
+# profile's agents block — a topic may swap an agent and its env without
+# touching this file. Every entry below is a pure substitution via the merge key.
+.agent-analyst: &agent-analyst
+  agent: "{{ agents.analyst.agent }}"
+{% if agents.analyst.env %}
   env:
-    CODEX_MODEL: "gpt-6-astra"
-    CODEX_REASONING: "high"
+{% for key, value in agents.analyst.env.items() %}
+    {{ key }}: {{ value | tojson }}
+{% endfor %}
+{% endif %}
 
-.codex-astra-xhigh: &codex-astra-xhigh
-  agent: codex
+.agent-writer: &agent-writer
+  agent: "{{ agents.writer.agent }}"
+{% if agents.writer.env %}
   env:
-    CODEX_MODEL: "gpt-6-astra"
-    CODEX_REASONING: "xhigh"
+{% for key, value in agents.writer.env.items() %}
+    {{ key }}: {{ value | tojson }}
+{% endfor %}
+{% endif %}
+
+.agent-editor: &agent-editor
+  agent: "{{ agents.editor.agent }}"
+{% if agents.editor.env %}
+  env:
+{% for key, value in agents.editor.env.items() %}
+    {{ key }}: {{ value | tojson }}
+{% endfor %}
+{% endif %}
 
 prompt: |
   # MASTER DIRECTIVES — apply to every stage and every assistant of this run
@@ -38,7 +57,7 @@ prompt: |
 
 # Assistants (prompts, when/gate) are declared by the pipeline stages themselves
 # (.goga/pipelines/generate.yml). This workflow only configures their delivery
-# (<<: *codex-… above) and appends profile-driven prompt fragments.
+# (<<: *agent-… above) and appends profile-driven prompt fragments.
 
 stages:
   search:
@@ -55,13 +74,13 @@ stages:
       "Monthly": "Pick the top stories of the last month"
     assistants:
       fact-checker:
-        <<: *codex-sol-xhigh
+        <<: *agent-analyst
         prompt: |
           ### METRICS FOCUS (from the issue profile)
           Prioritize exactly these details when deepening the stories:
           {{ topic.metrics_hint | default('exact product specifications, prices, comparison with the previous version or the main competitor', true) }}.
       hype-filter:
-        <<: *codex-sol-xhigh
+        <<: *agent-analyst
 
   merge:
     prompt: |
@@ -70,7 +89,7 @@ stages:
       - Industry leaders: {{ topic.key_players | default('market leaders and the largest companies of the industry', true) }}.
     assistants:
       narrative-designer:
-        <<: *codex-astra-high
+        <<: *agent-writer
 
   draft:
     prompt: |
@@ -79,9 +98,9 @@ stages:
       - Target audience: {{ topic.audience | default('practitioners, entrepreneurs and industry enthusiasts who value essence, utility and trends', true) }}.
     assistants:
       angle-generator:
-        <<: *codex-astra-high
+        <<: *agent-writer
       quality-gatekeeper:
-        <<: *codex-astra-xhigh
+        <<: *agent-editor
 
   digest:
     prompt: |
@@ -94,11 +113,11 @@ stages:
       Create missing directories if needed. This path overrides any `output` directive from the stage's base task.
     assistants:
       digest-punchup-writer:
-        <<: *codex-astra-high
+        <<: *agent-writer
       digest-standup-writer:
-        <<: *codex-astra-high
+        <<: *agent-writer
       digest-managing-editor:
-        <<: *codex-astra-xhigh
+        <<: *agent-editor
 
   article:
     prompt: |
@@ -111,22 +130,22 @@ stages:
       Create missing directories if needed. This path overrides any `output` directive from the stage's base task.
     assistants:
       long-form-outliner:
-        <<: *codex-astra-high
+        <<: *agent-writer
       deep-dive-researcher:
-        <<: *codex-astra-high
+        <<: *agent-writer
         prompt: |
           ### METRICS FOCUS (from the issue profile)
           Prioritize exactly these details in the "Specifications and figures" section:
           {{ topic.metrics_hint | default('exact specifications, comparison with previous versions and competitors, limitations and usage conditions', true) }}.
       use-case-architect:
-        <<: *codex-astra-high
+        <<: *agent-writer
       table-and-diagram-designer:
-        <<: *codex-astra-high
+        <<: *agent-writer
       long-form-writer:
-        <<: *codex-astra-xhigh
+        <<: *agent-editor
       article-punchup-writer:
-        <<: *codex-astra-high
+        <<: *agent-writer
       article-standup-writer:
-        <<: *codex-astra-high
+        <<: *agent-writer
       article-managing-editor:
-        <<: *codex-astra-xhigh
+        <<: *agent-editor

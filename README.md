@@ -60,13 +60,17 @@ Profiles live in `.goga/profiles/`:
 | `product` | product development and product management |
 
 A profile sets the content/communication languages, the topic name, scoring hints
-(key players, landmark events, metrics) and the target audience.
+(key players, landmark events, metrics), the target audience and the agent groups
+(`lead` / `analyst` / `writer` / `editor`) — each group carries its agent name and
+launch env, so a topic can swap any agent and its context without touching the
+workflow.
 
 ### Adding a new topic
 
 1. Copy `.goga/profiles/_template.yml` to `.goga/profiles/<topic-name>.yml`
    (ASCII letters, digits, dots, hyphens).
-2. Fill in at least `topic.name` — everything else falls back to neutral defaults.
+2. Fill in at least `topic.name` and keep the `agents` block (the workflow
+   renders every agent group from it); everything else falls back to neutral defaults.
 3. Run the pipeline with the new profile (see below).
 
 ## Output artifacts
@@ -82,9 +86,10 @@ Results are written to (git-ignored):
 
 ```
 .goga/
-├── config.yml              # language, image, agent and pipeline settings
+├── config.yml              # language, image and topic settings
 ├── pipelines/generate.yml  # pipeline stages: prompts and stage assistants (inline declarations)
-├── workflows/generate.yml  # delivery and per-topic overlays: agent/env per assistant,
-│                           # master prompt, topic context, artifact paths, period notes
+├── workflows/generate.yml  # run agent + env and assistant delivery groups (from the
+│                           # profile's agents block), master prompt, topic context,
+│                           # artifact paths, period notes
 └── profiles/               # topic profiles (ai, dev, devops, qa, design, product)
 ```

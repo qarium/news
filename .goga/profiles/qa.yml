@@ -1,8 +1,38 @@
 # Artifacts folder: .artifacts/<slug>/<issue date>/digest.md|article.md
 slug: qa
+
 # Content language (final materials) and communication language (dialogue with the customer) — used by the workflow master prompt.
 content_language: "Russian"
 communication_language: "Russian"
+
+# Delivery groups for the workflow agents — per-topic tuning.
+agents:
+  # Each group = the agent name + its full launch env — swap freely per topic.
+  # The lead agent — runs the five pipeline stages (search…article) and directs the assistants.
+  lead:
+    agent: "claude"
+    env:
+      ANTHROPIC_MODEL: "opus"
+      ANTHROPIC_BASE_URL: "https://api.z.ai/api/anthropic"
+  # Search-stage fact work and skepticism (fact-checker, hype-filter).
+  analyst:
+    agent: "codex"
+    env:
+      CODEX_MODEL: "gpt-6-sol"
+      CODEX_REASONING: "xhigh"
+  # Production chain: narrative, angles, style rewrites, longread team.
+  writer:
+    agent: "codex"
+    env:
+      CODEX_MODEL: "gpt-6-astra"
+      CODEX_REASONING: "high"
+  # Gates and final assembly (quality gate, managing editors, long-form writer).
+  editor:
+    agent: "codex"
+    env:
+      CODEX_MODEL: "gpt-6-astra"
+      CODEX_REASONING: "xhigh"
+
 topic:
   name: "QA testing and software quality assurance"
   # Who counts as industry leaders (feeds the "Impact scale" scoring criterion).

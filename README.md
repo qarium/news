@@ -36,12 +36,15 @@ search ──► merge ──► draft ──► digest   (short post, ~1300–2
 | `search` | An analyst scans the news flow, deduplicates stories, scores each one (impact / practical value / industry resonance, with a penalty for advertorials) and picks the TOP-10. |
 | `merge` | Stories are clustered by technological and market trends (not by company) into a coherent analytical reference. |
 | `draft` | A ready-to-publish draft written for the topic's target audience. |
-| `digest` | Interactive stage: pick a delivery style (strict `punchup-writer` or humorous `standup-writer`), then a `managing-editor` gate runs an anti-slop audit. |
+| `digest` | Interactive stage: pick a delivery style (strict or humorous style assistant), then an executive-editor gate runs an anti-slop audit. |
 | `article` | Interactive stage: the longread team designs the architecture, researches the second layer of facts, grounds it in practice, adds tables/diagrams and assembles the final text. |
 
 Each stage is backed by a cast of assistants (fact-checker, hype-filter, narrative-designer,
-angle-generator, quality-gatekeeper, managing editor and others) defined in
-`.goga/profiles/ai.yml`.
+angle-generator, quality-gatekeeper, style writers, managing editors and others). Assistants
+are declared right in the pipeline stages (prompts, engagement timing, gates) — see
+`.goga/pipelines/generate.yml`; the workflow (`.goga/workflows/generate.yml`) only wires their
+delivery (codex models via env) and appends profile-driven focus (e.g. the topic's metrics
+hint).
 
 ## Topic profiles
 
@@ -80,7 +83,8 @@ Results are written to (git-ignored):
 ```
 .goga/
 ├── config.yml              # language, image, agent and pipeline settings
-├── pipelines/generate.yml  # pipeline stages and prompts
-├── workflows/generate.yml  # workflow definition
+├── pipelines/generate.yml  # pipeline stages: prompts and stage assistants (inline declarations)
+├── workflows/generate.yml  # delivery and per-topic overlays: agent/env per assistant,
+│                           # master prompt, topic context, artifact paths, period notes
 └── profiles/               # topic profiles (ai, dev, devops, qa, design, product)
 ```

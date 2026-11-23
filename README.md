@@ -33,7 +33,7 @@ search ──► merge ──► draft ──► digest   (short post, ~1300–2
 
 | Stage | What happens |
 |-------|--------------|
-| `search` | An analyst scans the news flow, deduplicates stories, scores each one (impact / practical value / industry resonance, with a penalty for advertorials) and picks the TOP-10. |
+| `search` | An analyst scans the news flow, deduplicates stories, drops the ones already covered by the previous issue (kept as marked updates only when materially new facts arrived), scores the rest (impact / practical value / industry resonance, with a penalty for advertorials) and picks the TOP-10. |
 | `merge` | Stories are clustered by technological and market trends (not by company) into a coherent analytical reference. |
 | `draft` | A ready-to-publish draft written for the topic's target audience. |
 | `digest` | Interactive stage: pick a delivery style (strict or humorous style assistant), then an executive-editor gate runs an anti-slop audit. |

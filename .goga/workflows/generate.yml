@@ -68,6 +68,12 @@ stages:
       - Landmark events (impact scale): {{ topic.landmark_events | default('major releases, large updates from market leaders, technological breakthroughs', true) }}.
       - Practically valuable events: {{ topic.practical_events | default('new tools, open-source solutions and APIs useful for business and practitioners', true) }}.
       - Industry resonance: {{ topic.industry_events | default('major investments, mergers, regulatory changes, loud insider reports', true) }}.
+
+      ### PREVIOUS ISSUES
+      Published issues live in `/workspace/.artifacts/{{ slug | default('general', true) }}/<issue date YYYY-MM-DD>/`.
+      Before scoring, inspect the LATEST dated folder that is OLDER than today
+      (today's folder is the current run's own output — skip it) and treat its
+      digest.md / article.md as already published.
     notes:
       "Daily": "Pick the top stories of the last day"
       "Weekly": "Pick the top stories of the last week"

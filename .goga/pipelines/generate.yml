@@ -282,14 +282,19 @@ search:
        - Study all the news, articles and links provided from the sources.
        - If several outlets covered the same event, merge them into one story, basing it on the most complete and authoritative source (the primary source).
 
-    2. **Scoring (1 to 10 points):**
+    2. **Previous-issue overlap check:**
+       - Before scoring, inspect the previous issue indicated in the stage's context (the issue artifacts location): read its published materials and note every story already covered there.
+       - Exclude any story fully covered by the previous issue UNLESS it gained materially new facts since then (a new release, price, datapoint, official response). Such stories stay, marked as an **update**, and are later narrated through what is new — never as a retelling.
+       - The check runs before scoring, so the TOP-10 fills with fresh stories.
+
+    3. **Scoring (1 to 10 points):**
        Rate every unique story by the following criteria:
        - **Impact scale (up to 4 points):** An industry-changing event: major releases, large updates from market leaders or a technological breakthrough (follow the landmark event examples from the topic context).
        - **Practical value (up to 3 points):** New tools, open-source solutions, APIs and features useful for business and industry practitioners (follow the examples from the topic context).
        - **Resonance and industry (up to 3 points):** Major investments, mergers, important legislation and industry regulation changes, loud insider reports.
        - *Penalty (-5 points):* Advertorials, clickbait without substance, minor updates of niche services, general musings without facts.
 
-    3. **TOP selection:**
+    4. **TOP selection:**
        - Sort the news by total score in descending order.
        - Select strictly the **TOP-10** highest-rated news items (if fewer than five news items score above 6, output only those above the threshold).
 
